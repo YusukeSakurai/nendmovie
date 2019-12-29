@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="com.effers.kaky.nend" version="0.1.0">
+    <name>Nend</name>
+    <description>Cordova Nend Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,nend,ad</keywords>
+    <js-module src="www/nend.js" name="Nend">
+        <clobbers target="Nend" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Nend">
+                <param name="android-package" value="com.effers.kaky.nend.Nend" />
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.INTERNET" />
+        </config-file>
+
+        <source-file src="src/android/Nend.java" target-dir="src/com/effers/kaky/nend" />
+        <source-file src="src/android/NendAd/nendSDK-2.6.1.jar" target-dir="libs" />
+
+        <framework src="com.google.android.gms:play-services-ads:+" />
+    </platform>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="Nend">
+                <param name="ios-package" value="CDVNend" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/CDVNend.h" />
+        <source-file src="src/ios/CDVNend.m" />
+
+
+<header-file src="src/ios/NendAd/NADFullBoard.h" />
+<header-file src="src/ios/NendAd/NADFullBoardLoader.h" />
+<header-file src="src/ios/NendAd/NADFullBoardView.h" />
+<header-file src="src/ios/NendAd/NADInterstitial.h" />
+<header-file src="src/ios/NendAd/NADInterstitialVideo.h" />
+<header-file src="src/ios/NendAd/NADLogger.h" />
+<header-file src="src/ios/NendAd/NADNative.h" />
+<header-file src="src/ios/NendAd/NADNativeClient.h" />
+<header-file src="src/ios/NendAd/NADNativeError.h" />
+<header-file src="src/ios/NendAd/NADNativeLogger.h" />
+<header-file src="src/ios/NendAd/NADNativeTableViewHelper.h" />
+<header-file src="src/ios/NendAd/NADNativeTableViewPlacement.h" />
+<header-file src="src/ios/NendAd/NADNativeVideo.h" />
+<header-file src="src/ios/NendAd/NADNativeVideoLoader.h" />
+<header-file src="src/ios/NendAd/NADNativeVideoView.h" />
+<header-file src="src/ios/NendAd/NADNativeViewRendering.h" />
+<header-file src="src/ios/NendAd/NADReward.h" />
+<header-file src="src/ios/NendAd/NADRewardedVideo.h" />
+<header-file src="src/ios/NendAd/NADUserFeature.h" />
+<header-file src="src/ios/NendAd/NADVideo.h" />
+<header-file src="src/ios/NendAd/NADVideoError.h" />
+<header-file src="src/ios/NendAd/NADView.h" />
+<header-file src="src/ios/NendAd/NendAd.h" />
+
+
+
+        <source-file src="src/ios/NendAd/NendAd" framework="true" />
+
+        <framework src="AdSupport.framework" />
+        <framework src="Security.framework" />
+        <framework src="ImageIO.framework" />
+        <framework src="AVFoundation.framework" />
+        <framework src="CoreMedia.framework" />
+        <framework src="SystemConfiguration.framework" />
+        <framework src="WebKit.framework" />
+
+    </platform>
+</plugin>
